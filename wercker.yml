@@ -6,9 +6,6 @@ box:
 dev:
   steps:
     - pip-install
-    - internal/watch:
-        code: python app.py
-        reload: true
 
 build:
   steps:
