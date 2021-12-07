@@ -1,0 +1,19 @@
+box:
+  id: python:2.7-slim
+  ports:
+    - "5000"
+
+dev:
+  steps:
+    - pip-install
+    - internal/watch:
+        code: python app.py
+        reload: true
+
+build:
+  steps:
+    - pip-install
+    - script:
+        name: python unit test
+        code: |
+          python app_test.py
