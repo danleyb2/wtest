@@ -22,10 +22,11 @@ jobs:
         echo "All Tests Pass"
 
     - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-          cache: 'yarn'
-          # cache-dependency-path: front/yarn.lock
+      with:
+        node-version: '16'
+        cache: 'yarn'
+        # cache-dependency-path: front/yarn.lock
+    - run: npm install
 
 
   job2:
@@ -51,6 +52,8 @@ jobs:
           node-version: '16'
           cache: 'yarn'
           # cache-dependency-path: front/yarn.lock
+          
+      - run: npm install
 
   build_with_gpr:
     runs-on: ubuntu-latest
