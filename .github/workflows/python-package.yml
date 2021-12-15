@@ -26,6 +26,7 @@ jobs:
         node-version: '16'
         cache: 'yarn'
         # cache-dependency-path: front/yarn.lock
+    - run: npm install
 
 
   job2:
@@ -51,4 +52,6 @@ jobs:
           node-version: '16'
           cache: 'yarn'
           # cache-dependency-path: front/yarn.lock
+          
+      - run: npm install
 
