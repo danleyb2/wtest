@@ -52,3 +52,11 @@ jobs:
           cache: 'yarn'
           # cache-dependency-path: front/yarn.lock
 
+  build_with_gpr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u $GITHUB_ACTOR --password-stdin
+      - run: docker pull docker.pkg.github.com/$GITHUB_REPOSITORY/wtest || true
+      - run: docker build . -t thing --cache-from=docker.pkg.github.com/$GITHUB_REPOSITORY/wtest
+      - run: docker tag thing docker.pkg.github.com/$GITHUB_REPOSITORY/wtest && docker push docker.pkg.github.com/$GITHUB_REPOSITORY/wtest || true
