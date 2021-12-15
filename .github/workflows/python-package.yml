@@ -15,7 +15,7 @@ jobs:
       with:
         python-version: 3.9
         cache: 'pip'
-        cache-dependency-path: 'back/requirements.txt'
+        cache-dependency-path: 'requirements.txt'
     - name: Test with pytest
       run: |
         echo "All Tests Pass"
@@ -31,6 +31,8 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
       - name: Test with pytest
         run: |
           echo "All Tests Pass"
