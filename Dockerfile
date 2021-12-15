@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:14
 RUN yarn create react-app my-react-app
 RUN cd my-react-app && yarn build
 RUN npm install -g @vue/cli && (yes | vue create my-vue-app --default)
