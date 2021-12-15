@@ -21,6 +21,13 @@ jobs:
       run: |
         echo "All Tests Pass"
 
+    - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'yarn'
+          # cache-dependency-path: front/yarn.lock
+
+
   job2:
       runs-on: ubuntu-latest
       strategy:
@@ -38,3 +45,10 @@ jobs:
       - name: Test with pytest
         run: |
           echo "All Tests Pass"
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'yarn'
+          # cache-dependency-path: front/yarn.lock
+
